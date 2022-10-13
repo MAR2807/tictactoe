@@ -24,6 +24,7 @@ function Main() {
   const[text1, setText1] = useState("");
   var player1 = "X";
   var player2 = "O";
+  var player3 = "Nobody"
   var currentPlayer = player1;
   
 
@@ -42,6 +43,7 @@ function Main() {
       populate(cellNum);
       swap();
       checkWin();
+      checkTie();
     }
 
 
@@ -146,11 +148,20 @@ function Main() {
         setWinner(player2);
         
       }
+   
     
     
       
     
     
+  }
+
+  const checkTie =  () =>{
+    if(!winner && boardState.length > 8){
+      setModal(true);
+      setWinner(player3);
+      
+    }
   }
 
   const reset = () =>{
